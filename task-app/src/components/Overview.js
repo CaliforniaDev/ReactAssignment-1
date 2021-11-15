@@ -1,5 +1,5 @@
 const TasksList = (props) => {
-    const tasks = props.tasks;
+    const { tasks } = props;
     const listTasks = tasks.map((taskItem, index) =>
         <li key={index}>{taskItem.text}</li>
     );
