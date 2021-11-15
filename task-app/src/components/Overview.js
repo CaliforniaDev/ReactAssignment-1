@@ -1,4 +1,4 @@
-const TasksList = (props) => {
+const Overview = (props) => {
     const { tasks } = props;
     const listTasks = tasks.map((taskItem, index) =>
         <li key={index}>{taskItem.text}</li>
@@ -11,4 +11,4 @@ const TasksList = (props) => {
     );
 }
 
-export default TasksList;
+export default Overview;
