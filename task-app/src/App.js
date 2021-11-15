@@ -16,19 +16,23 @@ class App extends Component {
     this.onSubmitTask = this.onSubmitTask.bind(this);
   }
   handleChange = (e) => {
-    this.setState({
+    this.setState( state => ({
       taskInput: {
-        text: e.target.value
+        text: e.target.value,
+        id: state.taskInput.id
       }
-    });
+    }));
   };
 
   onSubmitTask = (e) => {
     e.preventDefault();
-    this.setState({
-      tasks: this.state.tasks.concat(this.state.taskInput),
-      taskInput: { text: ''}
-    });
+    this.setState( state => ({
+      tasks: state.tasks.concat(state.taskInput),
+      taskInput: { 
+        text: '',
+        id: uniqid()
+      },
+    }));
   };
   render() {
     const { taskInput, tasks } = this.state;
