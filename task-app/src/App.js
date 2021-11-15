@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TasksList from './components/Overview';
 
 class App extends Component {
   constructor() {
@@ -27,8 +28,6 @@ class App extends Component {
   };
   render() {
     const { taskInput, tasks } = this.state;
-    console.log(taskInput, tasks);
-
     return (
       <div>
         <form onSubmit={this.onSubmitTask}>
@@ -36,6 +35,7 @@ class App extends Component {
           <input value={taskInput.text} onChange={this.handleChange} type="text" id="taskInput"></input>
           <button type="submit">Add Task</button>
         </form>
+        <TasksList tasks={tasks}/>
       </div>
     );
   }
