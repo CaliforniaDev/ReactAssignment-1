@@ -27,13 +27,14 @@ class App extends Component {
   };
   render() {
     const { taskInput, tasks } = this.state;
+    console.log(taskInput, tasks);
 
     return (
       <div>
-        <form>
+        <form onSubmit={this.onSubmitTask}>
           <label htmlFor="taskInput">Enter Tasks</label>
-          <input type="text" id="taskInput"></input>
-          <button type="submit">Submit Task</button>
+          <input value={taskInput.text} onChange={this.handleChange} type="text" id="taskInput"></input>
+          <button type="submit">Add Task</button>
         </form>
       </div>
     );
