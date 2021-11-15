@@ -9,6 +9,8 @@ class App extends Component {
     };
   }
   render() {
+    const { taskInput, tasks } = this.state;
+    
     return (
       <div>
         <form>
