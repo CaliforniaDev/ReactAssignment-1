@@ -7,10 +7,27 @@ class App extends Component {
       taskInput: { text: ''},
       tasks: []
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.onSubmitTask = this.onSubmitTask.bind(this);
   }
+  handleChange = (e) => {
+    this.setState({
+      taskInput: {
+        text: e.target.value
+      }
+    });
+  };
+
+  onSubmitTask = (e) => {
+    e.preventDefault();
+    this.setState({
+      tasks: this.state.tasks.concat(this.state.taskInput),
+      taskInput: { text: ''}
+    });
+  };
   render() {
     const { taskInput, tasks } = this.state;
-    
+
     return (
       <div>
         <form>
