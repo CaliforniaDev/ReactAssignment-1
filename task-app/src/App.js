@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import Overview from './components/Overview';
+import uniqid from 'uniqid';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      taskInput: { text: ''},
+      taskInput: { 
+        text: '',
+        id: uniqid()
+      },
       tasks: []
     };
     this.handleChange = this.handleChange.bind(this);
