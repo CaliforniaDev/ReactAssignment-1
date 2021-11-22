@@ -1,0 +1,28 @@
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.task-form-container {
+    height: 100vh;
+    background-color: brown;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr)
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: aqua;
+    grid-column: 1 / 6;
+    grid-row: 6 / 12;
+
+}
+.list-overview {
+    background-color: bisque;
+    display: block;
+
+}
