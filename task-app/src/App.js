@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Overview from './components/Overview';
 import uniqid from 'uniqid';
+import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      taskInput: { 
+      taskInput: {
         text: '',
         id: uniqid()
       },
@@ -14,7 +15,7 @@ class App extends Component {
     };
   }
   handleChange = (e) => {
-    this.setState( state => ({
+    this.setState(state => ({
       taskInput: {
         text: e.target.value,
         id: state.taskInput.id
@@ -24,9 +25,9 @@ class App extends Component {
 
   onSubmitTask = (e) => {
     e.preventDefault();
-    this.setState( state => ({
+    this.setState(state => ({
       tasks: state.tasks.concat(state.taskInput),
-      taskInput: { 
+      taskInput: {
         text: '',
         id: uniqid()
       },
@@ -41,14 +42,21 @@ class App extends Component {
   render() {
     const { taskInput, tasks } = this.state;
     return (
-      <div>
-        <form onSubmit={this.onSubmitTask}>
-          <label htmlFor="taskInput">Enter Tasks</label>
-          <input value={taskInput.text} onChange={this.handleChange} type="text" id="taskInput"></input>
-          <button type="submit">Add Task</button>
-        </form>
-        <Overview removeTask={this.removeTask} tasks={tasks}/>
-      </div>
+      <section className="task-form-container">
+        <div className="form-wrapper">
+          <div className="list-overview">
+            <Overview removeTask={this.removeTask} tasks={tasks} />
+          </div>
+          <form onSubmit={this.onSubmitTask}>
+            <label htmlFor="taskInput">Enter Tasks</label>
+            <input value={taskInput.text} onChange={this.handleChange} type="text" id="taskInput"></input>
+            <button type="submit">Add Task</button>
+          </form>
+
+
+
+        </div>
+      </section>
     );
   }
 }
