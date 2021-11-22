@@ -8,7 +8,7 @@ const Overview = (props) => {
     const listTasks = tasks.map((taskItem) =>
         <li key={taskItem.id}>
             {taskItem.text} 
-            <DeleteButton onClick={removeTask} />
+            <DeleteButton onClick={() => removeTask(taskItem.id)} />
         </li>
     );
     return (
@@ -21,7 +21,6 @@ const Overview = (props) => {
 
 const DeleteButton = (props) => {
     const trashIcon = <FontAwesomeIcon icon={faTrashAlt} />;
-
     return (
         <button onClick={props.onClick}>{trashIcon}</button>
     );
