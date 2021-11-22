@@ -12,8 +12,6 @@ class App extends Component {
       },
       tasks: []
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.onSubmitTask = this.onSubmitTask.bind(this);
   }
   handleChange = (e) => {
     this.setState( state => ({
