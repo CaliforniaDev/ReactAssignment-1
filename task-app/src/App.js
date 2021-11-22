@@ -31,11 +31,12 @@ class App extends Component {
         id: uniqid()
       },
     }));
-    console.log(this.state);
   };
 
-  removeTask = () => {
-    console.log(this.state);
+  removeTask = (id) => {
+    this.setState(state => ({
+      tasks: state.tasks.filter(task => task.id !== id)
+    }));
   }
   render() {
     const { taskInput, tasks } = this.state;
