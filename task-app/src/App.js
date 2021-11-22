@@ -31,7 +31,12 @@ class App extends Component {
         id: uniqid()
       },
     }));
+    console.log(this.state);
   };
+
+  removeTask = () => {
+    console.log(this.state);
+  }
   render() {
     const { taskInput, tasks } = this.state;
     return (
@@ -41,7 +46,7 @@ class App extends Component {
           <input value={taskInput.text} onChange={this.handleChange} type="text" id="taskInput"></input>
           <button type="submit">Add Task</button>
         </form>
-        <Overview tasks={tasks}/>
+        <Overview removeTask={this.removeTask} tasks={tasks}/>
       </div>
     );
   }
