@@ -37,7 +37,7 @@ class App extends Component {
     this.setState(state => ({
       tasks: state.tasks.filter(task => task.id !== id)
     }));
-  }
+  };
   render() {
     const { taskInput, tasks } = this.state;
     return (
