@@ -27,6 +27,9 @@ class App extends Component {
 
   onSubmitTask = (e) => {
     e.preventDefault();
+    if (this.state.taskInput.text.length <= 0) {
+      return console.log("Please enter a task");
+    }
     this.setState(state => ({
       tasks: state.tasks.concat(state.taskInput),
       taskInput: {
