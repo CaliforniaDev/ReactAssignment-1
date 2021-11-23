@@ -1,4 +1,10 @@
+
+
 body {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -6,21 +12,25 @@ body {
 
 .task-form-container {
     height: 100vh;
+    width: 100vw;
     background-color: brown;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr)
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+
 .form-wrapper {
+    width: 600px;
+    min-height: 500px;
+    min-width: 200px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     background-color: aqua;
-    grid-column: 1 / 6;
-    grid-row: 6 / 12;
-
 }
+
+
 .list-overview {
     background-color: bisque;
     display: block;
