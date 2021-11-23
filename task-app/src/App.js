@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Overview from './components/Overview';
 import uniqid from 'uniqid';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
 class App extends Component {
   constructor() {
@@ -47,12 +49,20 @@ class App extends Component {
           <div className="list-overview">
             <Overview removeTask={this.removeTask} tasks={tasks} />
           </div>
-          <form onSubmit={this.onSubmitTask}>
-            <label htmlFor="taskInput">Enter Tasks</label>
-            <input value={taskInput.text} onChange={this.handleChange} type="text" id="taskInput"></input>
-            <button type="submit">Add Task</button>
-          </form>
 
+          <form onSubmit={this.onSubmitTask}>
+            <InputGroup size="lg" className="mb-3">
+            <FormControl 
+            onChange={this.handleChange}
+            value={taskInput.text}
+            placeholder="Enter task here"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+            />
+            <Button type="submit" variant="primary">Add Task</Button>
+          </InputGroup>
+          </form>
+          
 
 
         </div>
