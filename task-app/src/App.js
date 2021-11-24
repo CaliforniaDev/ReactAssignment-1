@@ -27,16 +27,13 @@ class App extends Component {
 
   onSubmitTask = (e) => {
     e.preventDefault();
-    if (this.state.taskInput.text.length <= 0) {
-      return console.log("Please enter a task");
-    }
     this.setState(state => ({
       tasks: state.tasks.concat(state.taskInput),
       taskInput: {
         text: '',
         id: uniqid()
       },
-    }));
+    })); 
   };
 
   removeTask = (id) => {
@@ -52,20 +49,22 @@ class App extends Component {
           <div className="list-overview">
             <Overview removeTask={this.removeTask} tasks={tasks} />
           </div>
-
-          <form onSubmit={this.onSubmitTask}>
-            <InputGroup size="lg" className="mb-3">
-            <FormControl 
-            onChange={this.handleChange}
-            value={taskInput.text}
-            placeholder="Enter task here"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
-            />
-            <Button type="submit" variant="primary">Add Task</Button>
-          </InputGroup>
-          </form>
           
+          <form onSubmit={this.onSubmitTask}>
+            <InputGroup size="lg" className="mb-3" hasValidation>
+              <FormControl
+                required
+                type="text"
+                onChange={this.handleChange}
+                value={taskInput.text}
+                placeholder="Enter task here"
+                aria-label="Enter task"
+                aria-describedby="basic-addon2"
+              />
+              <Button type="submit" variant="primary">Add Task</Button>
+            </InputGroup>
+          </form>
+
 
 
         </div>
