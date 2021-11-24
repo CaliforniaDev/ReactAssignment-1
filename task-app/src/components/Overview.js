@@ -4,11 +4,11 @@ import { faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 const Overview = (props) => {
-    const { tasks, removeTask } = props;
+    const { tasks, removeTask, editTask } = props;
     const listTasks = tasks.map((taskItem) =>
         <li key={taskItem.id}>
             {taskItem.text} 
-            <TasksController onClick={() => removeTask(taskItem.id)} />
+            <TasksController editTask={editTask} removeTask={() => removeTask(taskItem.id)} />
         </li>
     );
     return (
@@ -20,12 +20,14 @@ const Overview = (props) => {
 }
 
 const TasksController = (props) => {
+    const { removeTask, editTask } = props;
     const deleteIcon = <FontAwesomeIcon className="task-icon" size="lg" icon={faTimesCircle} />;
     const editIcon = <FontAwesomeIcon className="task-icon" size="lg" icon={faEdit} />
   
     return (
         <div id="task-icon-container">
-            <span onClick={props.onClick}>{deleteIcon}</span> <span>{editIcon}</span>
+            <span onClick={removeTask}>{deleteIcon}</span> 
+            <span onClick={editTask}>{editIcon}</span>
         </div>
     );
 }
