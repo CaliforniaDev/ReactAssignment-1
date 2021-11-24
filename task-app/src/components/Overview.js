@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -20,9 +20,13 @@ const Overview = (props) => {
 }
 
 const DeleteButton = (props) => {
-    const trashIcon = <FontAwesomeIcon icon={faTrashAlt} />;
+    const deleteIcon = <FontAwesomeIcon size="lg" icon={faTimesCircle} />;
+    const editIcon = <FontAwesomeIcon size="lg" icon={faEdit} />
+  
     return (
-        <button onClick={props.onClick}>{trashIcon}</button>
+        <div onClick={props.onClick} id="deleteIconContainer">
+            <span>{deleteIcon}</span> <span>{editIcon}</span>
+        </div>
     );
 }
 
