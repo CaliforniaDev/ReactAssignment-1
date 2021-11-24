@@ -20,8 +20,8 @@ const Overview = (props) => {
 }
 
 const TasksController = (props) => {
-    const deleteIcon = <FontAwesomeIcon size="lg" icon={faTimesCircle} />;
-    const editIcon = <FontAwesomeIcon size="lg" icon={faEdit} />
+    const deleteIcon = <FontAwesomeIcon className="task-icon" size="lg" icon={faTimesCircle} />;
+    const editIcon = <FontAwesomeIcon className="task-icon" size="lg" icon={faEdit} />
   
     return (
         <div id="task-icon-container">
