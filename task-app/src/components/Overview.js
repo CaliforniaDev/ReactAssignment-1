@@ -24,8 +24,8 @@ const TasksController = (props) => {
     const editIcon = <FontAwesomeIcon size="lg" icon={faEdit} />
   
     return (
-        <div onClick={props.onClick} id="deleteIconContainer">
-            <span>{deleteIcon}</span> <span>{editIcon}</span>
+        <div id="task-icon-container">
+            <span onClick={props.onClick}>{deleteIcon}</span> <span>{editIcon}</span>
         </div>
     );
 }
