@@ -34,5 +34,22 @@ body {
 .list-overview {
     background-color: bisque;
     display: block;
+}
+.mb-3 > Button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+#taskInput {
+    border: 3px solid none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#deleteIconContainer {
+    display: inline;
+    margin-left: 16px;
+}
 
+#deleteIconContainer > span {
+    margin-right: 4px;
+    cursor: pointer;
 }
