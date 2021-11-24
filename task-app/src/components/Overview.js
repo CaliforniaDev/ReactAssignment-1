@@ -8,7 +8,7 @@ const Overview = (props) => {
     const listTasks = tasks.map((taskItem) =>
         <li key={taskItem.id}>
             {taskItem.text} 
-            <DeleteButton onClick={() => removeTask(taskItem.id)} />
+            <TasksController onClick={() => removeTask(taskItem.id)} />
         </li>
     );
     return (
@@ -19,7 +19,7 @@ const Overview = (props) => {
     );
 }
 
-const DeleteButton = (props) => {
+const TasksController = (props) => {
     const deleteIcon = <FontAwesomeIcon size="lg" icon={faTimesCircle} />;
     const editIcon = <FontAwesomeIcon size="lg" icon={faEdit} />
   
