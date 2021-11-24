@@ -53,7 +53,7 @@ class App extends Component {
           <form onSubmit={this.onSubmitTask}>
             <InputGroup size="lg" className="mb-3" hasValidation>
               <FormControl
-                id="taskInput"
+                id="task-input"
                 required
                 type="text"
                 onChange={this.handleChange}

@@ -39,7 +39,7 @@ body {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
-#taskInput {
+#task-input {
     border: 3px solid none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -49,7 +49,7 @@ body {
     margin-left: 16px;
 }
 
-#deleteIconContainer > span {
+#task-icon-container > span {
     margin-right: 4px;
     cursor: pointer;
 }
