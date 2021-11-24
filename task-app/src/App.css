@@ -53,3 +53,12 @@ body {
     margin-right: 4px;
     cursor: pointer;
 }
+.task-icon {
+    transition: 0.3s;
+}
+.task-icon:hover {
+    color: dodgerblue;
+    transition: 0.3s;
+}
+
+
