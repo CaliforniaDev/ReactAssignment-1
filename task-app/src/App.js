@@ -41,13 +41,16 @@ class App extends Component {
       tasks: state.tasks.filter(task => task.id !== id)
     }));
   };
+  editTask = (id) => {
+    alert(id);
+  }
   render() {
     const { taskInput, tasks } = this.state;
     return (
       <section className="task-form-container">
         <div className="form-wrapper">
           <div className="list-overview">
-            <Overview removeTask={this.removeTask} tasks={tasks} />
+            <Overview editTask={this.editTask} removeTask={this.removeTask} tasks={tasks} />
           </div>
           
           <form onSubmit={this.onSubmitTask}>
