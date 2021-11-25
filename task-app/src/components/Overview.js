@@ -9,6 +9,7 @@ const Overview = (props) => {
         <li key={taskItem.id}>
             {taskItem.text} 
             <TasksController editTask={editTask} removeTask={() => removeTask(taskItem.id)} />
+            <input type="text" className="edit-task-input" />
         </li>
     );
     return (
