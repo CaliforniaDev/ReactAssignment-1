@@ -4,12 +4,17 @@ import { faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 const Overview = (props) => {
-    const { tasks, removeTask, editTask } = props;
+    const { tasks, state, removeTask, editTask, updateTask } = props;
+    console.log(tasks);
+    
     const listTasks = tasks.map((taskItem) =>
-        <li key={taskItem.id}>
-            {taskItem.text} 
+    //state.editing === true ? console.log(state) : 
+        <li className="styles.item" key={taskItem.id}>
+            <div>
+            {taskItem.text}
             <TasksController editTask={editTask} removeTask={() => removeTask(taskItem.id)} />
-            <input type="text" className="edit-task-input" />
+            </div>
+            <input onChange={handleChange} type="text" className="style.textInput" defaultValue={taskItem.text} />
         </li>
     );
     return (
