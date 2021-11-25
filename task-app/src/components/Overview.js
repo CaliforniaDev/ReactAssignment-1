@@ -14,7 +14,7 @@ const Overview = (props) => {
             {taskItem.text}
             <TasksController editTask={editTask} removeTask={() => removeTask(taskItem.id)} />
             </div>
-            <input onChange={handleChange} type="text" className="style.textInput" defaultValue={taskItem.text} />
+            <input onChange={updateTask} type="text" className="style.textInput" defaultValue={taskItem.text} />
         </li>
     );
     return (
