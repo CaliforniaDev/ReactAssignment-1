@@ -13,7 +13,8 @@ class App extends Component {
         text: '',
         id: uniqid()
       },
-      tasks: []
+      tasks: [],
+      editing: false
     };
   }
   handleChange = (e) => {
@@ -41,7 +42,7 @@ class App extends Component {
       tasks: state.tasks.filter(task => task.id !== id)
     }));
   };
-  editTask = (id) => {
+  handleEdit = (id) => {
     alert(id);
   }
   render() {
@@ -50,7 +51,7 @@ class App extends Component {
       <section className="task-form-container">
         <div className="form-wrapper">
           <div className="list-overview">
-            <Overview editTask={this.editTask} removeTask={this.removeTask} tasks={tasks} />
+            <Overview editTask={this.handleEdit} removeTask={this.removeTask} tasks={tasks} />
           </div>
           
           <form onSubmit={this.onSubmitTask}>
