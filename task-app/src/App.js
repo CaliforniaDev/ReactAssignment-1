@@ -34,7 +34,7 @@ class App extends Component {
         text: '',
         id: uniqid()
       },
-    })); 
+    }));
   };
 
   removeTask = (id) => {
@@ -42,18 +42,32 @@ class App extends Component {
       tasks: state.tasks.filter(task => task.id !== id)
     }));
   };
-  handleEdit = (id) => {
-    alert(id);
+  handleEdit = () => {
+    this.setState({
+      editing: true
+    })
+  }
+  updateTask = (updatedTask, id) => {
+    console.log(updatedTask, id);
   }
   render() {
+    const viewMode = {};
+    const editMode = {};
+    this.state.editing ? viewMode.display = 'none' : editMode.display = 'none';
     const { taskInput, tasks } = this.state;
     return (
       <section className="task-form-container">
         <div className="form-wrapper">
           <div className="list-overview">
-            <Overview editTask={this.handleEdit} removeTask={this.removeTask} tasks={tasks} />
+            <Overview
+              tasks={tasks}
+              state={this.state}
+              removeTask={this.removeTask}
+              editTask={this.handleEdit}
+              updateTask={this.updateTask}
+            />
           </div>
-          
+
           <form onSubmit={this.onSubmitTask}>
             <InputGroup size="lg" className="mb-3" hasValidation>
               <FormControl
