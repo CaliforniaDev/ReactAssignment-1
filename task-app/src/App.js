@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Overview from './components/Overview';
+import Header from './components/Header';
 import uniqid from 'uniqid';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,9 +12,25 @@ class App extends Component {
     this.state = {
       taskInput: {
         text: '',
-        id: uniqid()
+        id: uniqid(),
       },
-      tasks: [],
+      tasks: [
+        {
+          text: "Setup development environment",
+          id: 1,
+          completed: true
+        },
+        {
+          text: "Develop website and add content",
+          id: 2,
+          completed: false
+        },
+        {
+          text: "Deploy to live server",
+          id: 3,
+          completed: false
+        }
+      ],
       editing: false
     };
   }
@@ -21,7 +38,9 @@ class App extends Component {
     this.setState(state => ({
       taskInput: {
         text: e.target.value,
-        id: state.taskInput.id
+        id: state.taskInput.id,
+        completed: false
+        
       }
     }));
   };
@@ -32,9 +51,10 @@ class App extends Component {
       tasks: state.tasks.concat(state.taskInput),
       taskInput: {
         text: '',
-        id: uniqid()
+        id: uniqid(),
       },
     }));
+    console.log(this.state);
   };
 
   removeTask = (id) => {
@@ -79,6 +99,7 @@ updateTask = (event, updatedTask, id) => {
     const { taskInput, tasks } = this.state;
     return (
       <section className="task-form-container">
+        <Header />
         <div className="form-wrapper">
           <div className="list-overview">
             <Overview
