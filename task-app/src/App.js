@@ -47,9 +47,31 @@ class App extends Component {
       editing: true
     })
   }
-  updateTask = (updatedTask, id) => {
-    console.log(updatedTask, id);
+  updateTask = (updatedTitle, id) => {
+    this.setState(state => ({
+      taskInput: {
+        text: state.tasks.map(taskItem => {
+          if(taskItem.id === id) {
+            taskItem = updatedTitle;
+            console.log(taskItem);
+          }
+          return taskItem;
+        })
+      }
+    }))
   }
+  /*
+updateTask = (event, updatedTask, id) => {
+    event.preventDefault();
+    this.setState(state => ({
+      tasks: state.tasks.map(task => {
+        if (task.id === id) task = updatedTask;
+        return task;
+      })
+    }))
+  }
+   */
+  
   render() {
     const viewMode = {};
     const editMode = {};
