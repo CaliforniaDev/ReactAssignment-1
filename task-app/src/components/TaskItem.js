@@ -1,11 +1,12 @@
+import React from "react";
+
 const TaskItem = (props) => {
-
+    const { task } = props;
     return (
-        <div>
-            <h1> I am a Task Item</h1>
-        </div>
+        <li>
+            <input type="checkbox" checked={task.completed}/>
+            {task.text}
+        </li>
     )
-
 }
-
 export default TaskItem;
