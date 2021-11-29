@@ -1,35 +1,23 @@
+import TaskItem from './TaskItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 
 const Overview = (props) => {
-    const { tasks, state, removeTask, editTask, updateTask } = props;
-    const listTasks = tasks.map((taskItem) =>
-        //state.editing === true ? console.log(state) : 
-        <li className="styles.item" key={taskItem.id}>
-            <div>
-                {taskItem.text}
-                <TasksController
-                    editTask={editTask}
-                    removeTask={() => removeTask(taskItem.id)}
-                />
-            </div>
-            <input
-                onChange={updateTask}
-                type="text"
-                className="style.textInput"
-                defaultValue={taskItem.text}
-            />
-        </li>
-    );
+    const { tasks } = props;
     return (
         <div>
-            <h1>List of Tasks</h1>
-            <ul>{listTasks}</ul>
+            <ul>
+                {tasks.map(task => (
+                    <li key={task.id}>{task.text}</li>
+                ))}
+            </ul>
         </div>
     );
 }
+
+
 
 const TasksController = (props) => {
     const { removeTask, editTask } = props;
@@ -45,3 +33,26 @@ const TasksController = (props) => {
 }
 
 export default Overview;
+
+
+
+{/*   const listTasks = tasks.map((taskItem) =>
+        //state.editing === true ? console.log(state) : 
+        <li className="styles.item" key={taskItem.id}>
+            <div style={viewmode}>
+                {taskItem.text}
+                <TasksController
+                    editTask={editTask}
+                    removeTask={() => removeTask(taskItem.id)}
+                />
+            </div>
+            <input
+                value={taskItem.text}
+                type="text"
+                className="style.textInput"
+                onChange={e => updateTask(e.target.value, taskItem.id)}
+            />
+            
+            <button >Update Task</button>
+        </li>
+    ); */}
