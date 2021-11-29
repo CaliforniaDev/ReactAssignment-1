@@ -10,7 +10,7 @@ const Overview = (props) => {
         <div>
             <ul>
                 {tasks.map(task => (
-                    <li key={task.id}>{task.text}</li>
+                    <TaskItem key={task.id} task={task} />
                 ))}
             </ul>
         </div>
