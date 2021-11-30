@@ -44,6 +44,9 @@ class App extends Component {
       }
     }));
   };
+  handleCompletedTask = () => {
+    console.log('checked')
+  }
 
   onSubmitTask = (e) => {
     e.preventDefault();
@@ -108,6 +111,7 @@ updateTask = (event, updatedTask, id) => {
               removeTask={this.removeTask}
               editTask={this.handleEdit}
               updateTask={this.updateTask}
+              handleCompletedTask={this.handleCompletedTask}
             />
           </div>
 
