@@ -34,7 +34,7 @@ class App extends Component {
       editing: false
     };
   }
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState(state => ({
       taskInput: {
         text: e.target.value,
@@ -44,11 +44,11 @@ class App extends Component {
       }
     }));
   };
-  handleCompletedTask = () => {
-    console.log('checked')
+  handleCompletedTask = (id) => {
+    console.log(id);
   }
 
-  onSubmitTask = (e) => {
+  onSubmitTask = e => {
     e.preventDefault();
     this.setState(state => ({
       tasks: state.tasks.concat(state.taskInput),
@@ -60,7 +60,7 @@ class App extends Component {
     console.log(this.state);
   };
 
-  removeTask = (id) => {
+  removeTask = id => {
     this.setState(state => ({
       tasks: state.tasks.filter(task => task.id !== id)
     }));
