@@ -6,7 +6,6 @@ import { faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Overview = (props) => {
     const { tasks, handleCompletedTask } = props;
-    console.log(props);
     return (
         <div>
             <ul>
