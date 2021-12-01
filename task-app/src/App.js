@@ -45,7 +45,12 @@ class App extends Component {
     }));
   };
   handleCompletedTask = (id) => {
-    console.log(id);
+    this.setState(state => ({
+      tasks: state.tasks.map(task => {
+        if (task.id === id) task.completed = !task.completed;
+        return task;
+      })
+    }))
   }
 
   onSubmitTask = e => {
