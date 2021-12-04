@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 import Overview from './components/Overview';
 import InputTask from './components/InputTask';
 import Header from './components/Header';
-import uniqid from 'uniqid';
 import './App.css';
+import uniqid from 'uniqid';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      taskInput: {
-        title: '',
-        id: uniqid(),
-      },
+    this.state = { 
       tasks: [
         {
           title: "Setup development environment",
@@ -32,19 +28,21 @@ class App extends Component {
           completed: false
         }
       ],
+      id: uniqid(),
       editing: false
     };
   }
-  handleChange = e => {
-    this.setState(state => ({
-      taskInput: {
-        title: e.target.value,
-        id: state.taskInput.id,
-        completed: false
-        
-      }
-    }));
-  };
+  addTask = task => {
+    const newTask = {
+      ...task,
+      id: this.state.id,
+      completed: false
+    }
+    this.setState({
+      tasks: [...this.state.tasks, newTask],
+      id: uniqid()
+    })
+  }
   handleCompletedTask = (id) => {
     this.setState(state => ({
       tasks: state.tasks.map(task => {
@@ -55,17 +53,6 @@ class App extends Component {
     }))
   };
 
-  onSubmitTask = e => {
-    e.preventDefault();
-    this.setState(state => ({
-      tasks: state.tasks.concat(state.taskInput),
-      taskInput: {
-        title: '',
-        id: uniqid(),
-      },
-    }));
-    console.log(this.state);
-  };
 
   deleteTask = id => {
     this.setState(state => ({
@@ -77,36 +64,14 @@ class App extends Component {
       editing: true
     })
   }
-  updateTask = (updatedTitle, id) => {
-    this.setState(state => ({
-      taskInput: {
-        title: state.tasks.map(taskItem => {
-          if(taskItem.id === id) {
-            taskItem = updatedTitle;
-            console.log(taskItem);
-          }
-          return taskItem;
-        })
-      }
-    }))
-  }
-  /*
-updateTask = (event, updatedTask, id) => {
-    event.preventDefault();
-    this.setState(state => ({
-      tasks: state.tasks.map(task => {
-        if (task.id === id) task = updatedTask;
-        return task;
-      })
-    }))
-  }
-   */
+
+
   
   render() {
     const viewMode = {};
     const editMode = {};
     this.state.editing ? viewMode.display = 'none' : editMode.display = 'none';
-    const { taskInput, tasks } = this.state;
+    const { tasks } = this.state;
     return (
       <section className="task-form-container">
         <Header />
@@ -121,11 +86,7 @@ updateTask = (event, updatedTask, id) => {
               handleCompletedTask={this.handleCompletedTask}
             />
           </div>
-          <InputTask 
-          onSubmitTask={this.onSubmitTask} 
-          handleChange={this.handleChange} 
-          taskInput={taskInput} 
-          />
+          <InputTask addTask={this.addTask} />
         </div>
         
       </section>
@@ -135,3 +96,32 @@ updateTask = (event, updatedTask, id) => {
 
 
 export default App;
+
+
+
+
+/*
+  updateTask = (updatedTitle, id) => {
+    this.setState(state => ({
+      taskInput: {
+        title: state.tasks.map(taskItem => {
+          if(taskItem.id === id) {
+            taskItem = updatedTitle;
+            console.log(taskItem);
+          }
+          return taskItem;
+        })
+      }
+    }))
+  }
+  
+updateTask = (event, updatedTask, id) => {
+    event.preventDefault();
+    this.setState(state => ({
+      tasks: state.tasks.map(task => {
+        if (task.id === id) task = updatedTask;
+        return task;
+      })
+    }))
+  }
+   */
