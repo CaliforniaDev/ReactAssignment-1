@@ -1,7 +1,8 @@
 import React from "react";
+import TasksController from "./TaskController";
 
 const TaskItem = (props) => {
-    const { task, handleCompletedTask } = props;
+    const { task, handleCompletedTask, deleteTask } = props;
     return (
         <li>
             <input 
@@ -10,6 +11,8 @@ const TaskItem = (props) => {
               onChange={() => handleCompletedTask(task.id)}
             />
             {task.text}
+            <TasksController deleteTask={() => deleteTask(task.id)}/>
+            
         </li>
     )
 }
