@@ -1,11 +1,9 @@
 import TaskItem from './TaskItem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 
 const Overview = (props) => {
-    const { tasks, handleCompletedTask } = props;
+    const { tasks, handleCompletedTask, deleteTask } = props;
     return (
         <div>
             <ul>
@@ -13,25 +11,11 @@ const Overview = (props) => {
                     <TaskItem 
                       key={task.id} 
                       task={task}
-                      handleCompletedTask={handleCompletedTask} 
+                      handleCompletedTask={handleCompletedTask}
+                      deleteTask={deleteTask} 
                     />
                 ))}
             </ul>
-        </div>
-    );
-}
-
-
-
-const TasksController = (props) => {
-    const { removeTask, editTask } = props;
-    const deleteIcon = <FontAwesomeIcon className="task-icon" size="lg" icon={faTimesCircle} />;
-    const editIcon = <FontAwesomeIcon className="task-icon" size="lg" icon={faEdit} />
-
-    return (
-        <div id="task-icon-container">
-            <span onClick={removeTask}>{deleteIcon}</span>
-            <span onClick={editTask}>{editIcon}</span>
         </div>
     );
 }
