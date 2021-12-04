@@ -12,22 +12,22 @@ class App extends Component {
     super();
     this.state = {
       taskInput: {
-        text: '',
+        title: '',
         id: uniqid(),
       },
       tasks: [
         {
-          text: "Setup development environment",
+          title: "Setup development environment",
           id: 1,
           completed: true
         },
         {
-          text: "Develop website and add content",
+          title: "Develop website and add content",
           id: 2,
           completed: false
         },
         {
-          text: "Deploy to live server",
+          title: "Deploy to live server",
           id: 3,
           completed: false
         }
@@ -38,7 +38,7 @@ class App extends Component {
   handleChange = e => {
     this.setState(state => ({
       taskInput: {
-        text: e.target.value,
+        title: e.target.value,
         id: state.taskInput.id,
         completed: false
         
@@ -60,7 +60,7 @@ class App extends Component {
     this.setState(state => ({
       tasks: state.tasks.concat(state.taskInput),
       taskInput: {
-        text: '',
+        title: '',
         id: uniqid(),
       },
     }));
@@ -80,7 +80,7 @@ class App extends Component {
   updateTask = (updatedTitle, id) => {
     this.setState(state => ({
       taskInput: {
-        text: state.tasks.map(taskItem => {
+        title: state.tasks.map(taskItem => {
           if(taskItem.id === id) {
             taskItem = updatedTitle;
             console.log(taskItem);

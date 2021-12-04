@@ -10,7 +10,7 @@ const TaskItem = (props) => {
               checked={task.completed}
               onChange={() => handleCompletedTask(task.id)}
             />
-            {task.text}
+            {task.title}
             <TasksController deleteTask={() => deleteTask(task.id)}/>
             
         </li>
