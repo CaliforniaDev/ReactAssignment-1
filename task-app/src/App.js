@@ -66,9 +66,9 @@ class App extends Component {
     console.log(this.state);
   };
 
-  removeTask = id => {
+  deleteTask = id => {
     this.setState(state => ({
-      tasks: state.tasks.filter(task => task.id !== id)
+      tasks: [...state.tasks.filter(task => task.id !== id)]
     }));
   };
   handleEdit = () => {
@@ -114,7 +114,7 @@ updateTask = (event, updatedTask, id) => {
             <Overview
               tasks={tasks}
               state={this.state}
-              removeTask={this.removeTask}
+              deleteTask={this.deleteTask}
               editTask={this.handleEdit}
               updateTask={this.updateTask}
               handleCompletedTask={this.handleCompletedTask}
