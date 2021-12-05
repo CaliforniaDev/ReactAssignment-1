@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Overview from './components/Overview';
 import InputTask from './components/InputTask';
 import Header from './components/Header';
-import './App.css';
 import {v4 as uuidv4 } from 'uuid';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
