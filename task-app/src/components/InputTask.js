@@ -21,7 +21,9 @@ class InputTask extends Component {
   }
   onSubmitTask = e => {
     e.preventDefault();
-    this.props.addTask(this.state.taskInput);
+    this.state.taskInput.title.trim ?
+    this.props.addTask(this.state.taskInput)
+    : alert("Please write item");
     this.setState({
       taskInput: {
         title: "",
