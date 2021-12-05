@@ -4,7 +4,6 @@ import InputTask from './components/InputTask';
 import Header from './components/Header';
 import './App.css';
 import {v4 as uuidv4 } from 'uuid';
-import uniqid from 'uniqid';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -15,21 +14,21 @@ class App extends Component {
       tasks: [
         {
           title: "Setup development environment",
-          id: 1,
+          id: uuidv4(),
           completed: true
         },
         {
           title: "Develop website and add content",
-          id: 2,
+          id: uuidv4(),
           completed: false
         },
         {
           title: "Deploy to live server",
-          id: 3,
+          id: uuidv4(),
           completed: false
         }
       ],
-      id: uniqid(),
+      id: uuidv4(),
       editing: false
     };
   }
@@ -41,7 +40,7 @@ class App extends Component {
     }
     this.setState({
       tasks: [...this.state.tasks, newTask],
-      id: uniqid()
+      id: uuidv4()
     })
   }
   handleCompletedTask = (id) => {
@@ -73,6 +72,7 @@ class App extends Component {
     const editMode = {};
     this.state.editing ? viewMode.display = 'none' : editMode.display = 'none';
     const { tasks } = this.state;
+    console.log(this.state.tasks);
     return (
       <section className="task-form-container">
         <Header />
