@@ -1,4 +1,9 @@
 const Header = props => {
-    return <h1>Task Manager</h1>
+    return (
+        <div>
+            <h1>Task Manager</h1>
+        </div>
+    
+    )
 }
 export default Header;
