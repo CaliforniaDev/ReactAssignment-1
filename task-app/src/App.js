@@ -73,8 +73,8 @@ class App extends Component {
     const { tasks } = this.state;
     console.log(this.state.tasks);
     return (
-      <section className="TaskForm">
-        <div className="TaskForm--innerWrapper">
+      <section className="Container">
+        <div className="Container--inner">
         <Header />
         <Overview
           tasks={tasks}
