@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Overview from './components/Overview';
 import InputTask from './components/InputTask';
 import Header from './components/Header';
-import {v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       tasks: [
         {
           title: "Setup development environment",
@@ -45,9 +45,9 @@ class App extends Component {
   handleCompletedTask = (id) => {
     this.setState(state => ({
       tasks: state.tasks.map(task => {
-        return task.id === id ? 
-        { ...task, completed: !task.completed } 
-        : task
+        return task.id === id ?
+          { ...task, completed: !task.completed }
+          : task
       }),
     }))
   };
@@ -65,7 +65,7 @@ class App extends Component {
   }
 
 
-  
+
   render() {
     const viewMode = {};
     const editMode = {};
@@ -73,22 +73,20 @@ class App extends Component {
     const { tasks } = this.state;
     console.log(this.state.tasks);
     return (
-      <section className="task-form-container">
+      <section className="TaskForm">
+        <div className="TaskForm--innerWrapper">
         <Header />
-        <div className="form-wrapper">
-          <div className="list-overview">
-            <Overview
-              tasks={tasks}
-              state={this.state}
-              deleteTask={this.deleteTask}
-              editTask={this.handleEdit}
-              updateTask={this.updateTask}
-              handleCompletedTask={this.handleCompletedTask}
-            />
-          </div>
-          <InputTask addTask={this.addTask} />
+        <Overview
+          tasks={tasks}
+          state={this.state}
+          deleteTask={this.deleteTask}
+          editTask={this.handleEdit}
+          updateTask={this.updateTask}
+          handleCompletedTask={this.handleCompletedTask}
+        />
+        <InputTask addTask={this.addTask} />
         </div>
-        
+
       </section>
     );
   }
@@ -114,7 +112,7 @@ export default App;
       }
     }))
   }
-  
+
 updateTask = (event, updatedTask, id) => {
     event.preventDefault();
     this.setState(state => ({
