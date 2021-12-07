@@ -1,5 +1,4 @@
-import { Button, InputGroup, FormControl } from 'react-bootstrap';
-
+import { FormControl } from 'react-bootstrap';
 import React, { Component } from 'react';
 
 class InputTask extends Component {
@@ -32,11 +31,10 @@ class InputTask extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.onSubmitTask}>
-          <InputGroup size="lg" className="mb-3" hasValidation>
+      <form className="TaskForm" onSubmit={this.onSubmitTask}>
             <FormControl
-              id="task-input"
               required
+              className="TaskForm--input"
               type="text"
               name="title"
               onChange={this.onChange}
@@ -45,8 +43,8 @@ class InputTask extends Component {
               aria-label="Enter task"
               aria-describedby="basic-addon2"
             />
-            <Button type="submit" variant="primary">Add Task</Button>
-          </InputGroup>
+            <button className="TaskForm--submit" type="submit">ADD TASK</button>
+       
         </form>
   );
   }
