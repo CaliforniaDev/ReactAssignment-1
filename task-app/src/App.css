@@ -11,3 +11,58 @@ body {
     background: #fff;
     height: 100vh;
 }
+.Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.Container--inner {
+    width: 100%;
+    padding: 8rem 10px 4rem;
+}
+
+.TaskForm {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: calc(0.5 * 100px);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
+ 
+}
+
+.TaskForm--input {
+    font-size: 1rem;
+    font-weight: 400;
+    width: 85%;
+    padding-right: 5px;
+    padding-left: 10px;
+    border-radius: calc(0.5 * 100px);
+}
+
+.TaskForm--input::placeholder {
+    color: #000;
+}
+
+.TaskForm--submit {
+    background: transparent;
+    color: #5b5b5b;
+    text-transform: capitalize;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: calc(0.5 * 100px);
+    white-space: nowrap;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.TaskForm--input,
+.TaskForm--submit {
+    height: 45px;
+    outline: none;
+    border: none;
+}
