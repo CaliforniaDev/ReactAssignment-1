@@ -76,6 +76,7 @@ class App extends Component {
       <section className="Container">
         <div className="Container--inner">
         <Header />
+        <InputTask addTask={this.addTask} />
         <Overview
           tasks={tasks}
           state={this.state}
@@ -84,7 +85,7 @@ class App extends Component {
           updateTask={this.updateTask}
           handleCompletedTask={this.handleCompletedTask}
         />
-        <InputTask addTask={this.addTask} />
+        
         </div>
 
       </section>
