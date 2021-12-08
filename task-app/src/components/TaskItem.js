@@ -1,12 +1,14 @@
 import React from "react";
+import styles from "./TaskItem.module.css";
 import TasksController from "./TaskController";
 
 const TaskItem = (props) => {
     const { task, handleCompletedTask, deleteTask } = props;
     return (
-        <li>
+        <li className={styles.item}>
             <input 
-              type="checkbox" 
+              type="checkbox"
+              className={styles.checkbox}
               checked={task.completed}
               onChange={() => handleCompletedTask(task.id)}
             />
