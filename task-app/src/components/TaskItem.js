@@ -3,7 +3,8 @@ import styles from "./TaskItem.module.scss";
 import TasksController from "./TaskController";
 
 const TaskItem = (props) => {
-    const { task, handleCompletedTask, deleteTask } = props;
+    const { handleCompletedTask, deleteTask } = props;
+    const { id, completed, title } = props.task;
     const completedStyle = {
         fontStyle: "italic",
         color: "#595959",
@@ -16,13 +17,13 @@ const TaskItem = (props) => {
             <input 
               type="checkbox"
               className={styles.checkbox}
-              checked={task.completed}
-              onChange={() => handleCompletedTask(task.id)}
+              checked={completed}
+              onChange={() => handleCompletedTask(id)}
             />
-            <span style={task.completed ? completedStyle : null}>
-            {task.title}
+            <span style={completed ? completedStyle : null}>
+            {title}
             </span>
-            <TasksController deleteTask={() => deleteTask(task.id)}/>
+            <TasksController deleteTask={() => deleteTask(id)}/>
             
         </li>
     )
