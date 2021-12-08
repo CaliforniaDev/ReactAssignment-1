@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./TaskItem.module.css";
+import styles from "./TaskItem.module.scss";
 import TasksController from "./TaskController";
 
 const TaskItem = (props) => {
