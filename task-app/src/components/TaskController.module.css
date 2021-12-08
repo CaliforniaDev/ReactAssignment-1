@@ -1,0 +1,7 @@
+.control {
+    display: inline;
+    margin-left: auto;
+}
+.control span {
+    margin-left: 15px;
+}
