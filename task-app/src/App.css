@@ -63,7 +63,6 @@ body {
 .TaskForm--input,
 .TaskForm--submit {
     height: 45px;
-    border: 1px solid red;
     outline: none;
     border: none;
 }
