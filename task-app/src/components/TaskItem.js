@@ -45,7 +45,7 @@ class TaskItem extends React.Component {
                 </span>
                 <TasksController editTask={this.handleEditing} deleteTask={() => deleteTask(id)}/>
                 </div>
-                <input type="text" style={editMode} className={styles.textInput} />d
+                <input type="text" style={editMode} className={styles.textInput} />
                 
             </li>
         );
