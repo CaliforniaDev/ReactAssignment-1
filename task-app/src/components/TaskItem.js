@@ -14,7 +14,7 @@ class TaskItem extends React.Component {
             editing: true
         })
     }
-    render() {
+    render() { 
         const { handleCompletedTask, deleteTask } = this.props;
         const { id, completed, title } = this.props.task;
         const completedStyle = {
@@ -24,8 +24,16 @@ class TaskItem extends React.Component {
             textDecoration: "line-through",
             transition: "0.5s",
         }
+
+        let viewMode = {};
+        let editMode = {};
+        this.state.editing ? viewMode.display = "none" 
+        : editMode.display="none"
+
+
         return (
             <li className={styles.item}>
+                <div style={viewMode}>
                 <input 
                   type="checkbox"
                   className={styles.checkbox}
@@ -35,8 +43,9 @@ class TaskItem extends React.Component {
                 <span style={completed ? completedStyle : null}>
                 {title}
                 </span>
-                <input type="text" className={styles.textInput} />
-                <TasksController deleteTask={() => deleteTask(id)}/>
+                <TasksController editTask={this.handleEditing} deleteTask={() => deleteTask(id)}/>
+                </div>
+                <input type="text" style={editMode} className={styles.textInput} />d
                 
             </li>
         );
