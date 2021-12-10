@@ -1,64 +1,68 @@
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    display: flex;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-.task-form-container {
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.4;
+    color: #444;
+    background: #fff;
     height: 100vh;
-    width: 100vw;
-    background-color: brown;
+}
+.Container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
+.Container--inner {
+    width: 100%;
+    padding: 8rem 10px 4rem;
+}
 
-.form-wrapper {
-    width: 600px;
-    min-height: 500px;
-    min-width: 200px;
+.TaskForm {
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    background-color: aqua;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: calc(0.5 * 100px);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
+ 
 }
 
-
-.list-overview {
-    background-color: bisque;
-    display: block;
-}
-.mb-3 > Button {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-}
-#task-input {
-    border: 3px solid none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-#task-icon-container {
-    display: inline;
-    margin-left: 16px;
+.TaskForm--input {
+    font-size: 1rem;
+    font-weight: 400;
+    width: 85%;
+    padding-right: 5px;
+    padding-left: 10px;
+    border-radius: calc(0.5 * 100px);
 }
 
-#task-icon-container > span {
-    margin-right: 4px;
+.TaskForm--input::placeholder {
+    color: #000;
+}
+
+.TaskForm--submit {
+    background: transparent;
+    color: #5b5b5b;
+    text-transform: capitalize;
     cursor: pointer;
-}
-.task-icon {
-    transition: 0.3s;
-}
-.task-icon:hover {
-    color: dodgerblue;
-    transition: 0.3s;
+    font-weight: 600;
+    border-radius: calc(0.5 * 100px);
+    white-space: nowrap;
+    font-size: 1rem;
+    margin-right: 10px;
 }
 
-
+.TaskForm--input,
+.TaskForm--submit {
+    height: 45px;
+    outline: none;
+    border: none;
+}

@@ -1,0 +1,23 @@
+
+
+.item {
+    font-size: 1.2rem;
+    list-style-type: none;
+    padding: 17px 0px;
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+}
+.item > div {
+    display: flex;
+}
+
+.checkbox {
+    margin-right: 15px;
+    margin-left: -20px;
+}
+
+.textInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+}

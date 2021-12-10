@@ -1,0 +1,15 @@
+.control {
+    display: inline;
+    margin-left: auto;
+}
+.control span {
+    margin-left: 15px;
+    cursor: pointer;
+}
+.deleteIcon {
+    color: rgb(175, 1, 1);
+}
+
+.editIcon {
+    color: dodgerblue;
+}
