@@ -68,11 +68,12 @@ class App extends Component {
     }))
   }
   render() {
+    const { tasks } = this.state;
     const viewMode = {};
     const editMode = {};
-    this.state.editing ? viewMode.display = 'none' : editMode.display = 'none';
-    const { tasks } = this.state;
-    console.log(this.state.tasks);
+    this.state.editing ? viewMode.display = 'none' 
+    : editMode.display = 'none';
+    
     return (
       <section className="Container">
         <div className="Container--inner">
