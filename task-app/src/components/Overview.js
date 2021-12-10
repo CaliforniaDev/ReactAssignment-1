@@ -3,7 +3,7 @@ import TaskItem from './TaskItem';
 
 
 const Overview = (props) => {
-    const { tasks, handleCompletedTask, deleteTask } = props;
+    const { tasks, handleCompletedTask, deleteTask, setUpdate } = props;
     return (
         <div>
             <ul>
@@ -13,6 +13,7 @@ const Overview = (props) => {
                       task={task}
                       handleCompletedTask={handleCompletedTask}
                       deleteTask={deleteTask} 
+                      setUpdate={setUpdate}
                     />
                 ))}
             </ul>

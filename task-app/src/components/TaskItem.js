@@ -14,8 +14,15 @@ class TaskItem extends React.Component {
             editing: true
         })
     }
+    handleUpdatedDone = e => {
+        if (e.key === "Enter") {
+            this.setState({
+                editing: false
+            });
+        }
+    }
     render() { 
-        const { handleCompletedTask, deleteTask } = this.props;
+        const { handleCompletedTask, deleteTask, setUpdate } = this.props;
         const { id, completed, title } = this.props.task;
         const completedStyle = {
             fontStyle: "italic",
@@ -33,7 +40,7 @@ class TaskItem extends React.Component {
 
         return (
             <li className={styles.item}>
-                <div style={viewMode}>
+                <div onDoubleClick={this.handleEditing} style={viewMode}>
                 <input 
                   type="checkbox"
                   className={styles.checkbox}
@@ -43,9 +50,19 @@ class TaskItem extends React.Component {
                 <span style={completed ? completedStyle : null}>
                 {title}
                 </span>
-                <TasksController editTask={this.handleEditing} deleteTask={() => deleteTask(id)}/>
+                <TasksController 
+                  editTask={this.handleEditing} 
+                  deleteTask={() => deleteTask(id)}
+                  />
                 </div>
-                <input type="text" style={editMode} className={styles.textInput} />
+                <input 
+                  type="text" 
+                  style={editMode} 
+                  className={styles.textInput} 
+                  value={title} 
+                  onChange={e => { setUpdate(e.target.value, id)}} 
+                  onKeyDown={this.handleUpdatedDone}
+                />
                 
             </li>
         );

@@ -45,27 +45,28 @@ class App extends Component {
   handleCompletedTask = (id) => {
     this.setState(state => ({
       tasks: state.tasks.map(task => {
-        return task.id === id ?
-          { ...task, completed: !task.completed }
-          : task
+        return (task.id === id) ? 
+        {...task, completed: !task.completed}
+        : task; 
       }),
     }))
-  };
-
-
+  }
   deleteTask = id => {
     this.setState(state => ({
       tasks: [...state.tasks.filter(task => task.id !== id)]
     }));
-  };
-  handleEdit = () => {
-    this.setState({
-      editing: true
-    })
   }
 
-
-
+  setUpdate = (updatedTitle, id) => {
+    this.setState(state => ({
+      tasks: state.tasks.map(task => {
+        if (task.id === id) {
+          task.title = updatedTitle;
+        }
+        return task; 
+      })
+    }))
+  }
   render() {
     const viewMode = {};
     const editMode = {};
@@ -81,8 +82,7 @@ class App extends Component {
           tasks={tasks}
           state={this.state}
           deleteTask={this.deleteTask}
-          editTask={this.handleEdit}
-          updateTask={this.updateTask}
+          setUpdate={this.setUpdate}
           handleCompletedTask={this.handleCompletedTask}
         />
         
