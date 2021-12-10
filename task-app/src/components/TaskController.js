@@ -11,8 +11,8 @@ const TasksController = (props) => {
 
     return (
         <div className={styles.control}>
-            <span onClick={deleteTask}>{deleteIcon}</span>
-            <span onClick={editTask}>{editIcon}</span>
+            <span className={styles.deleteIcon} onClick={deleteTask}>{deleteIcon}</span>
+            <span className={styles.editIcon} onClick={editTask}>{editIcon}</span>
         </div>
     );
 }
