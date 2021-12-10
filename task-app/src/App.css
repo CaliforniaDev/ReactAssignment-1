@@ -30,7 +30,7 @@ body {
     justify-content: space-evenly;
     width: 100%;
     margin-bottom: 20px;
-    border-radius: calc(0.5 * 100px);
+    border-radius: 50px;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
  
 }
@@ -38,10 +38,10 @@ body {
 .TaskForm--input {
     font-size: 1rem;
     font-weight: 400;
-    width: 85%;
+    width: 100%;
     padding-right: 5px;
-    padding-left: 10px;
-    border-radius: calc(0.5 * 100px);
+    padding-left: 24px;
+    border-radius: 50px;
 }
 
 .TaskForm--input::placeholder {
@@ -54,15 +54,19 @@ body {
     text-transform: capitalize;
     cursor: pointer;
     font-weight: 600;
-    border-radius: calc(0.5 * 100px);
+    border-radius: 50px;
     white-space: nowrap;
     font-size: 1rem;
-    margin-right: 10px;
+    margin-right: 24px;
 }
 
 .TaskForm--input,
 .TaskForm--submit {
     height: 45px;
-    outline: none;
+    outline: none !important;
     border: none;
+}
+
+.addTaskBtn {
+    color: green;
 }

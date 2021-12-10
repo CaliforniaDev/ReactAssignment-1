@@ -1,5 +1,7 @@
 import { FormControl } from 'react-bootstrap';
 import React, { Component } from 'react';
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class InputTask extends Component {
   constructor(props) {
@@ -30,11 +32,12 @@ class InputTask extends Component {
     });
   }
   render() {
+    const addTaskIconBtn = <FontAwesomeIcon className="addTaskBtn" size="lg" icon={faPlusCircle} />
     return (
       <form className="TaskForm" onSubmit={this.onSubmitTask}>
             <FormControl
               required
-              className="TaskForm--input"
+              className="TaskForm--input shadow-none"
               type="text"
               name="title"
               onChange={this.onChange}
@@ -43,7 +46,7 @@ class InputTask extends Component {
               aria-label="Enter task"
               aria-describedby="basic-addon2"
             />
-            <button className="TaskForm--submit" type="submit">ADD TASK</button>
+            <button className="TaskForm--submit" type="submit">{addTaskIconBtn}</button>
        
         </form>
   );
