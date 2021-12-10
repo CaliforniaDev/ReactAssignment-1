@@ -22,26 +22,3 @@ const Overview = (props) => {
 }
 
 export default Overview;
-
-
-
-{/*   const listTasks = tasks.map((taskItem) =>
-        //state.editing === true ? console.log(state) : 
-        <li className="styles.item" key={taskItem.id}>
-            <div style={viewmode}>
-                {taskItem.text}
-                <TasksController
-                    editTask={editTask}
-                    removeTask={() => removeTask(taskItem.id)}
-                />
-            </div>
-            <input
-                value={taskItem.text}
-                type="text"
-                className="style.textInput"
-                onChange={e => updateTask(e.target.value, taskItem.id)}
-            />
-            
-            <button >Update Task</button>
-        </li>
-    ); */}
