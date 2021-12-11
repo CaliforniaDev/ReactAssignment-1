@@ -21,6 +21,10 @@ class TaskItem extends React.Component {
             });
         }
     }
+    componentDidUpdate() {
+        this.nameInput.focus();
+        this.nameInput.select();
+      }
     render() { 
         const { handleCompletedTask, deleteTask, setUpdate } = this.props;
         const { id, completed, title } = this.props.task;
@@ -34,7 +38,7 @@ class TaskItem extends React.Component {
 
         let viewMode = {};
         let editMode = {};
-        this.state.editing ? viewMode.display = "none" 
+        this.state.editing ? viewMode.display = "none"
         : editMode.display="none"
 
 
@@ -59,9 +63,11 @@ class TaskItem extends React.Component {
                   type="text" 
                   style={editMode} 
                   className={styles.textInput} 
-                  value={title} 
+                  value={title}
+                  onClick={e => {e.target.select()}}
                   onChange={e => { setUpdate(e.target.value, id)}} 
                   onKeyDown={this.handleUpdatedDone}
+                  ref={(input) => { this.nameInput = input; }}
                 />
                 
             </li>
