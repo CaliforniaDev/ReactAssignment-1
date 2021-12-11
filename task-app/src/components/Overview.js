@@ -3,7 +3,9 @@ import TaskItem from './TaskItem';
 
 
 const Overview = (props) => {
-    const { tasks, handleCompletedTask, deleteTask, setUpdate } = props;
+    const { tasks, handleCompletedTask, 
+            deleteTask, controlledInput, 
+            handleEditingProp, setEditingTask } = props;
     return (
         <div>
             <ul>
@@ -13,7 +15,9 @@ const Overview = (props) => {
                       task={task}
                       handleCompletedTask={handleCompletedTask}
                       deleteTask={deleteTask} 
-                      setUpdate={setUpdate}
+                      controlledInput={controlledInput}
+                      handleEditingProp={handleEditingProp}
+                      setEditingTask={setEditingTask}
                     />
                 ))}
             </ul>
