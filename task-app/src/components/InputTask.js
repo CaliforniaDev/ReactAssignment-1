@@ -40,7 +40,7 @@ class InputTask extends Component {
               className="TaskForm--input shadow-none"
               type="text"
               name="title"
-              onClick={e => { e.target.select() }}
+              onFocus={e => { e.target.select() }}
               onChange={this.onChange}
               value={this.state.taskInput.title}
               placeholder="Enter task here"
