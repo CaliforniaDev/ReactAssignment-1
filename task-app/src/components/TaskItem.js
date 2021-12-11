@@ -3,31 +3,17 @@ import styles from "./TaskItem.module.scss";
 import TasksController from "./TaskController";
 
 class TaskItem extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            editing: false
-        }
-    }
-    handleEditing = () => {
-        this.setState({
-            editing: true
-        })
-    }
-    handleUpdatedDone = e => {
-        if (e.key === "Enter") {
-            this.setState({
-                editing: false
-            });
-        }
-    }
+
     componentDidUpdate() {
-        this.nameInput.focus();
-        this.nameInput.select();
-      }
+        this.textInput.focus();
+    }
     render() { 
-        const { handleCompletedTask, deleteTask, setUpdate } = this.props;
-        const { id, completed, title } = this.props.task;
+
+        const { handleCompletedTask, deleteTask, 
+                controlledInput, handleEditingProp,
+                setEditingTask } = this.props;
+
+        const { id, completed, title, editing} = this.props.task;
         const completedStyle = {
             fontStyle: "italic",
             color: "#595959",
@@ -35,10 +21,9 @@ class TaskItem extends React.Component {
             textDecoration: "line-through",
             transition: "0.5s",
         }
-
         let viewMode = {};
         let editMode = {};
-        this.state.editing ? viewMode.display = "none"
+        editing ? viewMode.display = "none"
         : editMode.display="none"
 
 
@@ -55,7 +40,7 @@ class TaskItem extends React.Component {
                 {title}
                 </span>
                 <TasksController 
-                  editTask={this.handleEditing} 
+                  editTask={() => handleEditingProp(id)} 
                   deleteTask={() => deleteTask(id)}
                   />
                 </div>
@@ -64,10 +49,10 @@ class TaskItem extends React.Component {
                   style={editMode} 
                   className={styles.textInput} 
                   value={title}
-                  onClick={e => {e.target.select()}}
-                  onChange={e => { setUpdate(e.target.value, id)}} 
-                  onKeyDown={this.handleUpdatedDone}
-                  ref={(input) => { this.nameInput = input; }}
+                  onFocus={e => e.target.select()}
+                  onChange={e => { controlledInput(e.target.value, id)}} 
+                  onKeyDown={e => { setEditingTask(e, id)}}
+                  ref={el => {this.textInput = el}}
                 />
                 
             </li>
